@@ -24,13 +24,13 @@ from PIL import Image
 import clip
 
 # Local imports
-from utils.call_agent import ask_agent
-from utils.api_utils import is_base64, format_api_content, generate_masked_image, image2str, str2image, Unit, ModelInfoWrapper
-from utils.DatasetExemplars import DatasetExemplars
+from maia_utils.call_agent import ask_agent
+from maia_utils.api_utils import is_base64, format_api_content, generate_masked_image, image2str, str2image, Unit, ModelInfoWrapper
+from maia_utils.DatasetExemplars import DatasetExemplars
 
 # New imports
-from utils.instdiff import InstructDiffusion
-from utils.flux import FluxImageGenerator
+from maia_utils.instdiff import InstructDiffusion
+from maia_utils.flux import FluxImageGenerator
 
 
 class System:
@@ -847,7 +847,7 @@ class Tools:
             pipe.set_progress_bar_config(disable=True)
             return pipe
         elif model_name == "instdiff":
-            model = InstructDiffusion(batch_size=1, config_path="utils/InstructDiffusion/configs/instruct_diffusion.yaml", model_path="utils/InstructDiffusion/checkpoints/v1-5-pruned-emaonly-adaption-task.ckpt", device=self.device)
+            model = InstructDiffusion(batch_size=1, config_path="maia_utils/InstructDiffusion/configs/instruct_diffusion.yaml", model_path="maia_utils/InstructDiffusion/checkpoints/v1-5-pruned-emaonly-adaption-task.ckpt", device=self.device)
             return model
         else:
             raise("unrecognized pix2pix model name")

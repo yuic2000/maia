@@ -1,6 +1,6 @@
 '''Utils for the main.py file'''
 import json
-from utils.api_utils import str2image
+from maia_utils.api_utils import str2image
 
 # return the prompt according to the task
 def return_prompt(prompt_path,setting='unit_description'):

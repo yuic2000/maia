@@ -23,9 +23,11 @@ warnings.filterwarnings("ignore")
 # Load your API key manually:
 # openai.api_key = API_KEY
 
-openai.api_key = os.getenv("OPENAI_API_KEY")
-openai.organization = os.getenv("OPENAI_ORGANIZATION")
-anthropic_client = anthropic.Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
+# HF_TOKEN = os.getenv("HF_TOKEN")
+# openai.api_key = HF_TOKEN
+# openai.api_key = os.getenv("OPENAI_API_KEY")
+# openai.organization = os.getenv("OPENAI_ORGANIZATION")
+# anthropic_client = anthropic.Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
 
 def get_content_from_message(message):
     """
