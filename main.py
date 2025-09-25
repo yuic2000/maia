@@ -6,13 +6,13 @@ from IPython import embed
 import torch
 from dotenv import load_dotenv
 
-from utils.call_agent import ask_agent
+from maia_utils.call_agent import ask_agent
 from maia_api import System, Synthetic_System, Tools
-from utils.ExperimentEnvironment import ExperimentEnvironment
-from utils.DatasetExemplars import DatasetExemplars
-from utils.SyntheticExemplars import SyntheticExemplars
-from utils.main_utils import *
-from utils.api_utils import str2image
+from maia_utils.ExperimentEnvironment import ExperimentEnvironment
+from maia_utils.DatasetExemplars import DatasetExemplars
+from maia_utils.SyntheticExemplars import SyntheticExemplars
+from maia_utils.main_utils import *
+from maia_utils.api_utils import str2image
 import json
 
 random.seed(0000)
@@ -27,7 +27,8 @@ layers = {
 
 def call_argparse():
     parser = argparse.ArgumentParser(description='Process Arguments')	
-    parser.add_argument('--maia', type=str, default='claude', choices=['claude','gpt-4o','gpt-4-turbo'], help='maia agent name')	
+    # parser.add_argument('--maia', type=str, default='claude', choices=['claude','gpt-4o','gpt-4-turbo'], help='maia agent name')	
+    parser.add_argument('--maia', type=str, default='gemini-2.5-flash', choices=['gemini-2.5-flash'], help='maia agent name')	
     parser.add_argument('--task', type=str, default='neuron_description', choices=['neuron_description'], help='task to solve, default is neuron description')
     parser.add_argument('--model', type=str, default='resnet152', choices=['resnet152','clip-RN50','dino_vits8','synthetic_neurons'], help='model to interp')
     parser.add_argument('--units', type=str2dict, default='layer4=122', help='units to interp')	
